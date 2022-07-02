@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp
+package com.js.apps.moviedbapp.view.features
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.js.apps.moviedbapp.viewmodel.features.ItemDetailViewModel
+import com.js.apps.moviedbapp.R
 
 class ItemDetailFragment : Fragment() {
 

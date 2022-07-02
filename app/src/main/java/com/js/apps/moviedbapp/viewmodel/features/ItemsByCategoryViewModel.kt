@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp
+package com.js.apps.moviedbapp.viewmodel.features
 
 import androidx.lifecycle.ViewModel
 

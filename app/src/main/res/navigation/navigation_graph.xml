@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/itemsByCategoryFragment"
-        android:name="com.js.apps.moviedbapp.ItemsByCategoryFragment"
+        android:name="com.js.apps.moviedbapp.view.features.ItemsByCategoryFragment"
         android:label="items_by_category_fragment"
         tools:layout="@layout/items_by_category_fragment" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemDetailFragment"
-        android:name="com.js.apps.moviedbapp.ItemDetailFragment"
+        android:name="com.js.apps.moviedbapp.view.features.ItemDetailFragment"
         android:label="item_detail_fragment"
         tools:layout="@layout/item_detail_fragment" >
         <action
