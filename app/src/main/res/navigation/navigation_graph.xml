@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/itemsByCategoryFragment">
+
+    <fragment
+        android:id="@+id/itemsByCategoryFragment"
+        android:name="com.js.apps.moviedbapp.ItemsByCategoryFragment"
+        android:label="items_by_category_fragment"
+        tools:layout="@layout/items_by_category_fragment" >
+        <action
+            android:id="@+id/action_itemsByCategoryFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+        <action
+            android:id="@+id/action_itemsByCategory_to_itemDetail"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.js.apps.moviedbapp.ItemDetailFragment"
+        android:label="item_detail_fragment"
+        tools:layout="@layout/item_detail_fragment" >
+        <action
+            android:id="@+id/action_itemDetail_to_itemsByCategory"
+            app:destination="@id/itemsByCategoryFragment" />
+    </fragment>
+</navigation>

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Js Movie DB App</string>
+    <!--Items by Category-->
+    <string name="playing_now">Reproducir ahora</string>
+    <string name="most_popular">Más populares</string>
+    <string name="wellcome_title">Bienvenido.</string>
+    <string name="wellcome_subtitle"> Miles de películas y programas de televisión por descubrir.</string>
+    <string name="wellcome_post_data">  Explora ahora.</string>
+
 </resources>
