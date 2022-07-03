@@ -1,6 +1,6 @@
 package com.js.apps.moviedbapp.model.core
 
-enum class MediaTypes(id:Int) {
-    MOVIE(1),
-    SERIE(2)
+enum class MediaTypes(val id:Int, val path:String) {
+    MOVIE(1,"movie"),
+    SERIE(2, "tv")
 }

@@ -1,8 +1,6 @@
 package com.js.apps.moviedbapp.view.core
 
-import android.content.Context
 import android.util.Log
-import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +25,7 @@ class CardItemAdapter(
         val currentItem = items[position]
         holder.tvDate.text      = currentItem.getDate()
         holder.tvTitle.text     = currentItem.getName()
-        holder.tvRating.text    = currentItem.getPopularity()
+        holder.tvRating.text    = currentItem.getRating()
         Log.i("here","${currentItem.getPoster()}")
         Picasso.get()
             .load(currentItem.getPoster())

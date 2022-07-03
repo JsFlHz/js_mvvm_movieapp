@@ -19,6 +19,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation_graph" />
+        app:navGraph="@navigation/navigation_graph" >
+
+    </androidx.fragment.app.FragmentContainerView>
+    <TextView
+        android:id="@+id/no_internet_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/principal_yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        android:text="@string/no_internet_connection"
+        android:textSize="@dimen/middle_text"
+        android:fontFamily="@font/lato_regular"
+        android:gravity="center_vertical"
+        android:paddingVertical="3dp"
+        android:paddingHorizontal="@dimen/basic_horizontal_margin"
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

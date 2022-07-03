@@ -9,5 +9,6 @@
     <string name="wellcome_subtitle"> Miles de películas y programas de televisión por descubrir.</string>
     <string name="wellcome_post_data">  Explora ahora.</string>
     <string name="popularity_init">0</string>
+    <string name="no_internet_connection">Estás offline! Algunos contenidos no estarán disponibles.</string>
 
 </resources>

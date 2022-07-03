@@ -1,17 +1,19 @@
 package com.js.apps.moviedbapp.model.entities.media
-import android.os.Build
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.js.apps.moviedbapp.model.repository.api.APIConstants
 import com.js.apps.moviedbapp.view.core.CardItem
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 
+@Entity
 data class MediaItem(
+    @PrimaryKey()
     var id               : Int,
     var adult            : Boolean,
     @SerializedName ("backdrop_path")
     var backdropPath    : String,
-    //var genre_ids        :  // [3 items],
     @SerializedName("original_language")
     var originalLanguage: String,
     @SerializedName("original_title")
@@ -28,14 +30,13 @@ data class MediaItem(
     var voteAverage     : Float,
     @SerializedName("vote_count")
     var voteCount       : Int,
-
 )  : CardItem  {
 
     override fun getPoster(): String {
         return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$posterPath"
     }
 
-    override fun getPopularity(): String {
+    override fun getRating(): String {
         return voteAverage.toString()
     }
 

@@ -7,7 +7,6 @@
     tools:context=".view.features.ItemsByCategoryFragment"
     android:background="@color/transparent_light"
     >
-
     <LinearLayout
         android:id="@+id/banner_containner"
         android:layout_width="match_parent"
