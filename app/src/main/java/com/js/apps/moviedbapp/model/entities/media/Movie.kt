@@ -37,7 +37,7 @@ data class Movie(
     }
 
     override fun getRating(): String {
-        return voteAverage.toString()
+        return "${voteAverage}"
     }
 
     override fun getName(): String {

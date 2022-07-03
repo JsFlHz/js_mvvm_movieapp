@@ -26,60 +26,59 @@ class MediaItemsRepository@Inject constructor(
             MediaTypes.MOVIE->discoverMovies()
         }
     }
-  private suspend fun discoverMovies():List<Movie>{
-      if (connectivityHelper.isOnline()){
-          try{
-              val response = service.discoverMovies()
-              Log.i("here response","${response.code()}")
-              when(response.code()){
-                  APIStatusCode.SUCCES_CODE.code->{
-                      //save in database
-                      val items = response.body()?.results ?: emptyList()
-
-                      if(items.isNotEmpty()){
-                          Log.i("here","saving ${response.body()!!.results.size} items")
-                          for( item in items){
-                              moviesDao.insert(item)
+    private suspend fun discoverMovies():List<Movie>{
+          if (connectivityHelper.isOnline()){
+              try{
+                  val response = service.discoverMovies()
+                  Log.i("here response","${response.code()}")
+                  when(response.code()){
+                      APIStatusCode.SUCCES_CODE.code->{
+                          //save in database
+                          val items = response.body()?.results ?: emptyList()
+                          if(items.isNotEmpty()){
+                              Log.i("here","saving ${response.body()!!.results.size} items")
+                              for( item in items){
+                                  moviesDao.insert(item)
+                              }
                           }
                       }
                   }
+                  Log.i("here","returning ${response.body()!!.results.size}")
+                  return response.body()?.results ?: emptyList()
+              }catch (e:Exception){
+                  e.printStackTrace()
+                  return emptyList()
               }
-              Log.i("here","returning ${response.body()!!.results.size}")
-              return response.body()?.results ?: emptyList()
-          }catch (e:Exception){
-              e.printStackTrace()
-              return emptyList()
           }
+          return emptyList()
       }
-      return emptyList()
-  }
-  private suspend fun discoverSeries():List<Serie>{
-        if (connectivityHelper.isOnline()){
-            try{
-                val response = service.discoverSeries()
-                Log.i("here response","${response.code()}")
-                when(response.code()){
-                    APIStatusCode.SUCCES_CODE.code->{
-                        //save in database
-                        val items = response.body()?.results ?: emptyList()
+      private suspend fun discoverSeries():List<Serie>{
+            if (connectivityHelper.isOnline()){
+                try{
+                    val response = service.discoverSeries()
+                    Log.i("here response","${response.code()}")
+                    when(response.code()){
+                        APIStatusCode.SUCCES_CODE.code->{
+                            //save in database
+                            val items = response.body()?.results ?: emptyList()
 
-                        if(items.isNotEmpty()){
-                            Log.i("here","saving series${response.body()!!.results.size} items")
-                            for( item in items){
-                                seriesDao.insert(item)
+                            if(items.isNotEmpty()){
+                                Log.i("here","saving series${response.body()!!.results.size} items")
+                                for( item in items){
+                                    seriesDao.insert(item)
+                                }
                             }
                         }
                     }
+                    Log.i("here","returning series ${response.body()!!.results.size}")
+                    return response.body()?.results ?: emptyList()
+                }catch (e:Exception){
+                    e.printStackTrace()
+                    return emptyList()
                 }
-                Log.i("here","returning series ${response.body()!!.results.size}")
-                return response.body()?.results ?: emptyList()
-            }catch (e:Exception){
-                e.printStackTrace()
-                return emptyList()
             }
-        }
-        return emptyList()
-  }
+            return emptyList()
+      }
 
     fun getMediaItemsFromDB( ):LiveData<List<Movie>>{
         return moviesDao.getAll()
