@@ -10,7 +10,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApplicationAPIInterface {
-    @GET("/3/{categroy}/movie")
+    @GET("/3/discover/{category}")
     //fun discoverMovies():Response<List<MediaItem>>
     suspend fun  discoverMovies(@Path("category") category:String, @Query("api_key") apiKey:String ):Response<DiscoverResponse>
 
