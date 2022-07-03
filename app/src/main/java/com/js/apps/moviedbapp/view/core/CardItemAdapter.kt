@@ -25,9 +25,10 @@ class CardItemAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.tvDate.text = currentItem.getDate()
-        holder.tvTitle.text = currentItem.getName()
-       Log.i("here","${currentItem.getPoster()}")
+        holder.tvDate.text      = currentItem.getDate()
+        holder.tvTitle.text     = currentItem.getName()
+        holder.tvRating.text    = currentItem.getPopularity()
+        Log.i("here","${currentItem.getPoster()}")
         Picasso.get()
             .load(currentItem.getPoster())
             .into(holder.ivPoster)
@@ -40,13 +41,15 @@ class CardItemAdapter(
         return items.size
     }
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){
-        val tvTitle:TextView
-        val tvDate:TextView
-        val ivPoster:ImageView
+        val tvTitle     :TextView
+        val tvDate      :TextView
+        val ivPoster    :ImageView
+        val tvRating    :TextView
         init{
-            tvTitle = view.findViewById(R.id.tv_item_title)
-            tvDate  = view.findViewById(R.id.tv_item_date)
-            ivPoster= view.findViewById(R.id.iv_item_poster)
+            tvTitle  = view.findViewById(R.id.tv_item_title)
+            tvDate   = view.findViewById(R.id.tv_item_date)
+            ivPoster = view.findViewById(R.id.iv_item_poster)
+            tvRating = view.findViewById(R.id.tv_item_rating)
         }
 
 

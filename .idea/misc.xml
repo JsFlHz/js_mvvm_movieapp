@@ -5,10 +5,11 @@
       <map>
         <entry key="app/src/main/res/drawable/background_button_no_selected.xml" value="0.2075" />
         <entry key="app/src/main/res/drawable/background_button_selected.xml" value="0.2075" />
+        <entry key="app/src/main/res/drawable/background_circle.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/filters_bar_background.xml" value="0.2075" />
         <entry key="app/src/main/res/drawable/icon_app.xml" value="0.1955" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1766304347826087" />
-        <entry key="app/src/main/res/layout/card_item.xml" value="0.5629322268326418" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.6136363636363636" />
         <entry key="app/src/main/res/layout/item_detail_fragment.xml" value="0.24592391304347827" />
         <entry key="app/src/main/res/layout/items_by_category_fragment.xml" value="0.24592391304347827" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2075" />

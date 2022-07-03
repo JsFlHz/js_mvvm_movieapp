@@ -1,7 +1,10 @@
 package com.js.apps.moviedbapp.model.entities.media
+import android.os.Build
 import com.google.gson.annotations.SerializedName
 import com.js.apps.moviedbapp.model.repository.api.APIConstants
 import com.js.apps.moviedbapp.view.core.CardItem
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 
 data class MediaItem(
     var id               : Int,
@@ -33,7 +36,7 @@ data class MediaItem(
     }
 
     override fun getPopularity(): String {
-        return popularity.toString()
+        return voteAverage.toString()
     }
 
     override fun getName(): String {
@@ -41,7 +44,16 @@ data class MediaItem(
     }
 
     override fun getDate(): String {
-        return releaseDate
+       return if( releaseDate.isNotEmpty()){
+
+           val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+           val date = simpleDateFormat.parse(releaseDate)
+           val newDateFormat = SimpleDateFormat("dd MMM yyyy")
+           newDateFormat.format(date)
+
+        }else{
+          releaseDate
+        }
     }
 
     override fun toString(): String {

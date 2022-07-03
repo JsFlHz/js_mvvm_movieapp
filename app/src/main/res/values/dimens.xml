@@ -4,6 +4,7 @@
     <dimen name="basic_vertical_margin">10dp</dimen>
     <dimen name="big_text">18sp</dimen>
     <dimen name="middle_text">14sp</dimen>
-    <dimen name="litle_text">12sp</dimen>
+    <dimen name="litle_text">10sp</dimen>
+    <dimen name="extra_litle_text">8sp</dimen>
 
 </resources>

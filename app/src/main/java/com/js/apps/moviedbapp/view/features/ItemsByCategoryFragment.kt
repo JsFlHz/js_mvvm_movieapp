@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.js.apps.moviedbapp.viewmodel.features.ItemsByCategoryViewModel
@@ -50,10 +51,9 @@ class ItemsByCategoryFragment : Fragment() {
         val adapter = CardItemAdapter(results){
             Log.i("tapped", it.toString())
         }
-        recyclerView.layoutManager = LinearLayoutManager(
+        recyclerView.layoutManager = GridLayoutManager(
             requireContext(),
-            LinearLayoutManager.VERTICAL,
-            false
+            3
         )
         recyclerView.adapter = adapter
 
