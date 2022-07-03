@@ -10,13 +10,7 @@ import com.js.apps.moviedbapp.viewmodel.features.ItemDetailViewModel
 import com.js.apps.moviedbapp.R
 
 class ItemDetailFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ItemDetailFragment()
-    }
-
     private lateinit var viewModel: ItemDetailViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

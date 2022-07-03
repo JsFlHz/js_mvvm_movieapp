@@ -1,6 +1,7 @@
 package com.js.apps.moviedbapp.model.entities.media
 import com.google.gson.annotations.SerializedName
 import com.js.apps.moviedbapp.model.repository.api.APIConstants
+import com.js.apps.moviedbapp.view.core.CardItem
 
 data class MediaItem(
     var id               : Int,
@@ -25,11 +26,25 @@ data class MediaItem(
     @SerializedName("vote_count")
     var voteCount       : Int,
 
-)    {
- fun getPosterURL():String{
-     return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$posterPath"
- }
- override fun toString(): String {
+)  : CardItem  {
+
+    override fun getPoster(): String {
+        return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$posterPath"
+    }
+
+    override fun getPopularity(): String {
+        return popularity.toString()
+    }
+
+    override fun getName(): String {
+        return title
+    }
+
+    override fun getDate(): String {
+        return releaseDate
+    }
+
+    override fun toString(): String {
         return "MediaItem(id=$id, adult=$adult, backdropPath='$backdropPath', originalLanguage='$originalLanguage', originalTitle='$originalTitle', overview='$overview', popularity=$popularity, posterPath='$posterPath', releaseDate='$releaseDate', title='$title', video=$video, voteAverage=$voteAverage, voteCount=$voteCount)"
     }
 

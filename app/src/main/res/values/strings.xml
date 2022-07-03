@@ -6,5 +6,6 @@
     <string name="wellcome_title">Bienvenido.</string>
     <string name="wellcome_subtitle"> Miles de películas y programas de televisión por descubrir.</string>
     <string name="wellcome_post_data">  Explora ahora.</string>
+    <string name="popularity_init">  Explora ahora.</string>
 
 </resources>

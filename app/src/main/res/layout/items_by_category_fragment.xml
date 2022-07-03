@@ -92,13 +92,20 @@
             />
 
     </LinearLayout>
+
     <ScrollView
+        android:id="@+id/pirncipal_conatinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/buttons_containner"
-        android:background="@color/transparent_dark"
         android:layout_marginHorizontal="@dimen/basic_horizontal_margin"
         android:layout_marginBottom="@dimen/basic_vertical_margin"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="@color/transparent_dark">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/principal_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </ScrollView>
 
