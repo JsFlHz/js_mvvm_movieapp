@@ -2,7 +2,8 @@ package com.js.apps.moviedbapp.model.repository.database.room
 
 import android.content.Context
 import androidx.room.Room
-import com.js.apps.moviedbapp.model.repository.database.dao.MediaItemDao
+import com.js.apps.moviedbapp.model.repository.database.dao.MoviesDao
+import com.js.apps.moviedbapp.model.repository.database.dao.SeriesDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +25,12 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideMediaItemsDao(db:AppDatabase):MediaItemDao{
-        return db.mediaItemDao()
+    fun provideMediaItemsDao(db:AppDatabase):MoviesDao{
+        return db.moviesDao()
+    }
+    @Singleton
+    @Provides
+    fun provideSeriesDao(db:AppDatabase):SeriesDao{
+        return db.seriesDao()
     }
 }

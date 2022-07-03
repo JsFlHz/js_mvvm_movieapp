@@ -8,7 +8,7 @@ import com.js.apps.moviedbapp.view.core.CardItem
 import java.text.SimpleDateFormat
 
 @Entity
-data class MediaItem(
+data class Movie(
     @PrimaryKey()
     var id               : Int,
     var adult            : Boolean,
