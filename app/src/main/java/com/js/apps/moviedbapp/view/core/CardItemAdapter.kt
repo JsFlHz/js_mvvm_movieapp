@@ -26,7 +26,6 @@ class CardItemAdapter(
         holder.tvDate.text      = currentItem.getDate()
         holder.tvTitle.text     = currentItem.getName()
         holder.tvRating.text    = currentItem.getRating()
-        Log.i("here","${currentItem.getPoster()}")
         Picasso.get()
             .load(currentItem.getPoster())
             .into(holder.ivPoster)

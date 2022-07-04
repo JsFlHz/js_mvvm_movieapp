@@ -1,9 +1,7 @@
 package com.js.apps.moviedbapp.model.entities.media
 
-
-
 data class Video(
-    var id      : Int,
+    var id      : String,
     var key     : String,
     var site    : String
 )   {

@@ -5,6 +5,12 @@
         <variable
             name="item"
             type="com.js.apps.moviedbapp.view.core.CardItem" />
+        <variable
+            name="type"
+            type="com.js.apps.moviedbapp.model.core.MediaTypes" />
+        <variable
+            name="presenter"
+            type="com.js.apps.moviedbapp.view.features.ItemDetailFragment" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -17,14 +23,33 @@
     tools:context=".view.features.ItemDetailFragment"
     android:background="@color/black"
     >
-
-    <ImageView
+    <LinearLayout
         android:id="@+id/iv_detail_poster"
         android:layout_width="match_parent"
         android:layout_height="350dp"
+        android:orientation="horizontal"
         android:layout_alignParentTop="true"
-        android:background="@color/selected_button"
-        android:scaleType="fitCenter" />
+        android:background="@color/black"
+       >
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/selected_button"
+            android:scaleType="fitCenter"
+
+            />
+        <LinearLayout
+            android:id="@+id/video_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/transparent"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_detail_title"
@@ -84,7 +109,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="3dp"
-            android:background="@drawable/icon_play_solid" />
+            android:background="@drawable/icon_play_solid"
+            android:onClick="@{() -> presenter.showVideoTapped(item,type)}"
+            />
 
         <TextView
             android:id="@+id/tv_trailer_label"

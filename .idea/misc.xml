@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/background_circle.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/filters_bar_background.xml" value="0.2075" />
         <entry key="app/src/main/res/drawable/icon_app.xml" value="0.1955" />
+        <entry key="app/src/main/res/drawable/icon_play_solid.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/icon_play_yellow.xml" value="0.121" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.6136363636363636" />

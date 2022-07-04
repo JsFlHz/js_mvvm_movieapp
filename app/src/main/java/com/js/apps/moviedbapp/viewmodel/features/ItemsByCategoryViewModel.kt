@@ -24,9 +24,4 @@ class ItemsByCategoryViewModel @Inject constructor(
              repository.discoverContents(type)
          }
     }
-//    suspend fun discoverSeries( ):List<CardItem>{
-//        return withContext(Dispatchers.IO){
-//            repository.discoverContents(MediaTypes.MOVIE)
-//        }
-//    }
 }

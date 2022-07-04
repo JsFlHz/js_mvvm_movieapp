@@ -65,10 +65,9 @@ class ItemsByCategoryFragment : Fragment() {
             R.drawable.background_button_category
         )
         lifecycleScope.launch(Dispatchers.Main) {
-            val result =  withContext(Dispatchers.IO){
+           withContext(Dispatchers.IO){
                 viewModel.discoverContents(MediaTypes.SERIE)
             }
-            //loadList(result)
         }
         type = MediaTypes.SERIE
     }
