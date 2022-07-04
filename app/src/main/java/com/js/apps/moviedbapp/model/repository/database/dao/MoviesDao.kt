@@ -15,6 +15,9 @@ interface MoviesDao {
     @Query("SELECT * FROM Movie")
     fun getAll():LiveData<List<Movie>>
 
+    @Query("SELECT * FROM Movie")
+    suspend fun getAllSusp():List<Movie>
+
     @Query("SELECT * FROM Movie WHERE id = :id")
     fun getById(id:Int):LiveData<Movie>
 

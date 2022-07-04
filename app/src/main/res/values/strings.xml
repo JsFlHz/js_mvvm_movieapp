@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Js Movie DB App</string>
     <!--Items by Category-->
-    <string name="playing_now">Reproducir ahora</string>
+    <string name="playing_now">En cines</string>
     <string name="movies">Películas</string>
     <string name="series">Series</string>
     <string name="most_popular">Más populares</string>

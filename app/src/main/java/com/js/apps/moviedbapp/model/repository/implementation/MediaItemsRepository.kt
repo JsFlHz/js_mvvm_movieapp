@@ -49,8 +49,9 @@ class MediaItemsRepository@Inject constructor(
                   e.printStackTrace()
                   return emptyList()
               }
+          }else{
+            return getMoviesFromDBSusp()
           }
-          return emptyList()
       }
       private suspend fun discoverSeries():List<Serie>{
             if (connectivityHelper.isOnline()){
@@ -76,8 +77,9 @@ class MediaItemsRepository@Inject constructor(
                     e.printStackTrace()
                     return emptyList()
                 }
+            }else{
+                return getSeriesFromDBSusp()
             }
-            return emptyList()
       }
 
     fun getMediaItemsFromDB( ):LiveData<List<Movie>>{
@@ -86,6 +88,12 @@ class MediaItemsRepository@Inject constructor(
 
     fun getSeriesFromDB( ):LiveData<List<Serie>>{
         return seriesDao.getAll()
+    }
+    suspend fun getMoviesFromDBSusp( ):List<Movie>{
+        return moviesDao.getAllSusp()
+    }
+    suspend fun getSeriesFromDBSusp( ):List<Serie>{
+        return seriesDao.getAllSusp()
     }
 
 

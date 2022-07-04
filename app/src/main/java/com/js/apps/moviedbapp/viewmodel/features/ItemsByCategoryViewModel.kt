@@ -1,6 +1,8 @@
 package com.js.apps.moviedbapp.viewmodel.features
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.media.Movie
@@ -16,12 +18,20 @@ import javax.inject.Inject
 class ItemsByCategoryViewModel @Inject constructor(
     val repository : MediaItemsRepository
 ): ViewModel() {
-    var allMovies :LiveData<List<Movie>> = repository.getMediaItemsFromDB()
-    var allSeries :LiveData<List<Serie>> = repository.getSeriesFromDB()
+    val movieId = MutableLiveData<Int>()
+    val serieId = MutableLiveData<Int>()
+    var allMovies  = Transformations.switchMap(movieId){ repository.getMediaItemsFromDB() }
+    var allSeries  = Transformations.switchMap(serieId){repository.getSeriesFromDB()}
 
      suspend fun discoverContents( type:MediaTypes):List<CardItem>{
          return withContext(Dispatchers.IO){
              repository.discoverContents(type)
          }
+    }
+    fun setMovieId(value:Int){
+        movieId.value = value
+    }
+    fun setSerieId(value:Int){
+        serieId.value = value
     }
 }

@@ -125,10 +125,9 @@
             android:layout_margin="3dp"
             android:fontFamily="@font/lato_light"
             android:onClick="@{()->presenter.playNowButtonTapped()}"
-            android:padding="5dp"
             android:text="@string/playing_now"
-            android:textColor="@color/green_text"
-            android:textSize="@dimen/litle_text"
+            android:textColor="@color/selected_button"
+            android:textSize="@dimen/middle_text"
             android:gravity="center"
             />
 
@@ -140,10 +139,9 @@
             android:layout_margin="3dp"
             android:fontFamily="@font/lato_light"
             android:onClick="@{()->presenter.mostPopularButtonTapped()}"
-            android:padding="5dp"
             android:text="@string/most_popular"
-            android:textColor="@color/black"
-            android:textSize="@dimen/litle_text"
+            android:textColor="@color/selected_button"
+            android:textSize="@dimen/middle_text"
             android:gravity="center"
             />
 

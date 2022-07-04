@@ -20,6 +20,7 @@ import com.js.apps.moviedbapp.model.core.ConnectivityHelper
 import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.media.Movie
 import com.js.apps.moviedbapp.model.entities.media.Serie
+import com.js.apps.moviedbapp.view.core.BaseFragment
 import com.js.apps.moviedbapp.view.core.CardItem
 import com.js.apps.moviedbapp.view.core.CardItemAdapter
 import com.js.apps.moviedbapp.view.core.UIHelper
@@ -30,7 +31,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
-class ItemsByCategoryFragment : Fragment() {
+class ItemsByCategoryFragment : BaseFragment() {
     private lateinit var  viewModel: ItemsByCategoryViewModel
     private lateinit var binding: ItemsByCategoryFragmentBinding
     private lateinit var uiHelper :UIHelper
@@ -56,34 +57,64 @@ class ItemsByCategoryFragment : Fragment() {
         uiHelper = UIHelper(requireContext())
         addObservers()
         type = MediaTypes.SERIE
+        seriesButtonTapped()
     }
 
     fun seriesButtonTapped(){
-        updateSelection(
-            binding.seriesButton,
-            binding.moviesButton,
-            R.drawable.background_button_category
-        )
+       updateSeriesUI()
+        viewModel.setSerieId(1)
         lifecycleScope.launch(Dispatchers.Main) {
-           withContext(Dispatchers.IO){
+           val result = withContext(Dispatchers.IO){
                 viewModel.discoverContents(MediaTypes.SERIE)
+            }
+            if(!!super.connectivityHelper.isOnline()) {
+                Log.i("here", "loading list suspend")
+                loadList(result)
             }
         }
         type = MediaTypes.SERIE
     }
+    private fun updateSeriesUI(){
+        updateSelection(
+            binding.seriesButton,
+            binding.moviesButton,
+            R.drawable.background_button_category
+        )
+        binding.playNowButton.visibility = View.GONE
+        initDependentButtons()
+    }
+    private fun initDependentButtons(){
+        binding.playNowButton.background = null
+        binding.mostPopularButton.background = null
+        uiHelper.setColor(
+            R.color.selected_button,
+            binding.playNowButton,
+            binding.mostPopularButton
+        )
+
+    }
     fun moviesButtonTappded(){
+        updateMoviesUI()
+        viewModel.setMovieId(1)
+        lifecycleScope.launch(Dispatchers.Main) {
+            val result =  withContext(Dispatchers.IO){
+                viewModel.discoverContents(MediaTypes.MOVIE)
+            }
+            if(!!super.connectivityHelper.isOnline()) {
+                Log.i("here", "loading list suspend")
+                loadList(result)
+            }
+        }
+        type = MediaTypes.MOVIE
+    }
+    private fun  updateMoviesUI(){
         updateSelection(
             binding.moviesButton,
             binding.seriesButton,
             R.drawable.background_button_category
         )
-        lifecycleScope.launch(Dispatchers.Main) {
-            val result =  withContext(Dispatchers.IO){
-                viewModel.discoverContents(MediaTypes.MOVIE)
-            }
-            //loadList(result)
-        }
-        type = MediaTypes.MOVIE
+        binding.playNowButton.visibility = View.VISIBLE
+        initDependentButtons()
     }
     fun playNowButtonTapped(){
         updateSelection(
@@ -121,17 +152,7 @@ class ItemsByCategoryFragment : Fragment() {
         uiHelper.setColor(disabledColor,disabled)
     }
 
-    private fun checkConnectivity(){
-        val connectivityHelper = ConnectivityHelper(requireContext())
-        val noInternetBar = requireActivity().findViewById<TextView>(R.id.no_internet_bar)
-        if(!connectivityHelper.isOnline()){
-            Log.i("here", "find noInternetBar?${noInternetBar}")
-            noInternetBar?.visibility = View.VISIBLE
-        }else{
-            noInternetBar?.visibility = View.GONE
-        }
-        Log.i("here", "is on line?${connectivityHelper.isOnline()}")
-    }
+
     private fun addObservers(){
         val observer = Observer<List<Movie>>{
             if(!it.isNullOrEmpty()){

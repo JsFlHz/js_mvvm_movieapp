@@ -14,6 +14,9 @@ interface SeriesDao {
     @Query("SELECT * FROM Serie")
     fun getAll(): LiveData<List<Serie>>
 
+    @Query("SELECT * FROM Serie")
+    suspend fun getAllSusp(): List<Serie>
+
     @Query("SELECT * FROM Serie WHERE id = :id")
     fun getById(id:Int): LiveData<Serie>
 
