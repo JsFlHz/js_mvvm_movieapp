@@ -39,7 +39,18 @@ data class Movie(
     }
 
     override fun getRating(): String {
-        return "${voteAverage}"
+        return "${getRatingPorcent()}%"
+    }
+    fun getRatingPorcent(): Int {
+        try{
+            if(voteAverage>0){
+                val value =(voteAverage*100)/10
+                return value.toInt()
+            }
+        }catch (e:Exception){
+            return 0
+        }
+        return 0
     }
 
     override fun getName(): String {

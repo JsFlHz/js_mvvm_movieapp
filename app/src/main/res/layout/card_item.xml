@@ -24,8 +24,8 @@
 
         <TextView
             android:id="@+id/tv_item_rating"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_below="@+id/iv_item_poster"
             android:layout_marginStart="3dp"
             android:layout_marginTop="-10dp"
