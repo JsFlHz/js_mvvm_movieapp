@@ -39,9 +39,9 @@ data class Serie(
     }
 
     override fun getRating(): String {
-        return "${getRatingPorcent()}%"
+        return "${getRatingPorcent(voteAverage)}%"
     }
-    fun getRatingPorcent(): Int {
+    fun getRatingPorcent( voteAverage:Float ): Int {
         try{
             if(voteAverage>0){
                 val value =(voteAverage*100)/10
