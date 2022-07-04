@@ -5,6 +5,7 @@ import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.api.response.MoviesResponse
 import com.js.apps.moviedbapp.model.entities.api.response.SeriesResponse
 import com.js.apps.moviedbapp.model.entities.media.Movie
+import com.js.apps.moviedbapp.model.entities.media.Serie
 import com.js.apps.moviedbapp.model.entities.media.Video
 import com.js.apps.moviedbapp.model.repository.api.APIConstants
 import com.js.apps.moviedbapp.model.repository.api.retrofit.ApplicationAPIInterface
@@ -42,6 +43,40 @@ class MediaItemsService @Inject constructor(){
          val  response =  retrofit.create(ApplicationAPIInterface::class.java).getItemVideos(
                 type.path,
                 id,
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
+            )
+            Log.i("here", "service getVideos ${response}")
+            response.body()?.results ?: emptyList()
+        }
+    }
+    suspend fun getMostPopularMovies( ): List<Movie> {
+        Log.i("here", "service getVideos")
+        return withContext(Dispatchers.IO) {
+            val  response =  retrofit.create(ApplicationAPIInterface::class.java).getMostPopularMovies(
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
+            )
+            Log.i("here", "service getVideos ${response}")
+            response.body()?.results ?: emptyList()
+        }
+    }
+    suspend fun getMostPopularSeries( ): List<Serie> {
+        Log.i("here", "service getVideos")
+        return withContext(Dispatchers.IO) {
+            val  response =  retrofit.create(ApplicationAPIInterface::class.java).getMostPopularSeries(
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
+            )
+            Log.i("here", "service getVideos ${response}")
+            response.body()?.results ?: emptyList()
+        }
+    }
+
+    suspend fun getNowPlayingMovies( ): List<Movie> {
+        Log.i("here", "service getVideos")
+        return withContext(Dispatchers.IO) {
+            val  response =  retrofit.create(ApplicationAPIInterface::class.java).getNowPlayingMovie(
                 APIConstants.TMDB_API_KEY.value,
                 APIConstants.API_LAG_ESP_MX.value
             )

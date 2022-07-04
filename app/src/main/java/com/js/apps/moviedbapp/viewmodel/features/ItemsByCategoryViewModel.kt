@@ -28,6 +28,16 @@ class ItemsByCategoryViewModel @Inject constructor(
              repository.discoverContents(type)
          }
     }
+    suspend fun getMostPopular( type:MediaTypes ){
+        return withContext(Dispatchers.IO){
+            repository.mostPopular(type)
+        }
+    }
+    suspend fun getNowPlayingMovies(  ){
+        return withContext(Dispatchers.IO){
+            repository.getNowPlaying()
+        }
+    }
     fun setMovieId(value:Int){
         movieId.value = value
     }

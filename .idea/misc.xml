@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/icon_app.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/icon_play_solid.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/icon_play_yellow.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.1805" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.6136363636363636" />
         <entry key="app/src/main/res/layout/item_detail_fragment.xml" value="0.24592391304347827" />

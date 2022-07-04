@@ -128,6 +128,11 @@ class ItemsByCategoryFragment : BaseFragment() {
             R.color.green_text,
             R.color.black
         )
+        lifecycleScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO){
+                viewModel.getNowPlayingMovies()
+            }
+        }
     }
     fun mostPopularButtonTapped(){
         updateSelection(
@@ -141,6 +146,11 @@ class ItemsByCategoryFragment : BaseFragment() {
             R.color.green_text,
             R.color.black
         )
+        lifecycleScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO){
+                viewModel.getMostPopular(type)
+            }
+        }
     }
     private fun updateSelection( enabled:View, disabled:View, backgroundId:Int){
         enabled.background = AppCompatResources.getDrawable(requireContext(), backgroundId)

@@ -11,10 +11,10 @@ interface SeriesDao {
     @Insert( onConflict = OnConflictStrategy.REPLACE)
     fun insert( items: Serie)
 
-    @Query("SELECT * FROM Serie")
+    @Query("SELECT * FROM Serie order by voteAverage desc")
     fun getAll(): LiveData<List<Serie>>
 
-    @Query("SELECT * FROM Serie")
+    @Query("SELECT * FROM Serie order by voteAverage desc")
     suspend fun getAllSusp(): List<Serie>
 
     @Query("SELECT * FROM Serie WHERE id = :id")

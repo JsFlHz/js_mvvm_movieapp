@@ -36,6 +36,7 @@ class MediaItemsRepository@Inject constructor(
                           //save in database
                           val items = response.body()?.results ?: emptyList()
                           if(items.isNotEmpty()){
+                              moviesDao.deleteAll()
                               Log.i("here","saving ${response.body()!!.results.size} items")
                               for( item in items){
                                   moviesDao.insert(item)
@@ -64,6 +65,7 @@ class MediaItemsRepository@Inject constructor(
                             val items = response.body()?.results ?: emptyList()
 
                             if(items.isNotEmpty()){
+
                                 Log.i("here","saving series${response.body()!!.results.size} items")
                                 for( item in items){
                                     seriesDao.insert(item)
@@ -81,6 +83,54 @@ class MediaItemsRepository@Inject constructor(
                 return getSeriesFromDBSusp()
             }
       }
+
+    suspend fun mostPopular( type:MediaTypes){
+        return when(type){
+            MediaTypes.SERIE->getMostPopularSeries()
+            MediaTypes.MOVIE->getMostPopularMovies()
+        }
+    }
+    private suspend fun getMostPopularMovies(){
+            try{
+                val response = service.getMostPopularMovies()
+                if( response.isNotEmpty()){
+                    moviesDao.deleteAll()
+                    for(item in response){
+                        moviesDao.insert(item)
+                    }
+                }
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+    }
+
+    private suspend fun getMostPopularSeries(){
+        try{
+            val response = service.getMostPopularSeries()
+            if( response.isNotEmpty()){
+                seriesDao.deleteAll()
+                for(item in response){
+                    seriesDao.insert(item)
+                }
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+    }
+
+     suspend fun getNowPlaying(){
+        try{
+            val response = service.getNowPlayingMovies()
+            if( response.isNotEmpty()){
+                moviesDao.deleteAll()
+                for(item in response){
+                    moviesDao.insert(item)
+                }
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+    }
 
     fun getMediaItemsFromDB( ):LiveData<List<Movie>>{
         return moviesDao.getAll()

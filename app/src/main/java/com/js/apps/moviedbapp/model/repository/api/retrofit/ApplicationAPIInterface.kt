@@ -23,8 +23,7 @@ interface ApplicationAPIInterface {
         @Query("api_key") apiKey:String,
         @Query("language") lang:String
     ):Response<SeriesResponse>
-///tv/{tv_id}/videos
-    ///movie/{movie_id}/videos
+
     @GET("/3/{category}/{id}/videos")
     suspend fun getItemVideos(
         @Path("category") category:String,
@@ -32,4 +31,22 @@ interface ApplicationAPIInterface {
         @Query("api_key") apiKey:String,
         @Query("language") lang:String
     ):Response<VideosResponse>
+
+    @GET("/3/movie/popular")
+    suspend fun getMostPopularMovies(
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<MoviesResponse>
+
+    @GET("/3/tv/popular")
+    suspend fun getMostPopularSeries(
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<SeriesResponse>
+
+    @GET("/3/movie/now_playing")
+    suspend fun getNowPlayingMovie(
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<MoviesResponse>
 }
