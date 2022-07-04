@@ -37,14 +37,12 @@ class MediaItemsRepository@Inject constructor(
                           val items = response.body()?.results ?: emptyList()
                           if(items.isNotEmpty()){
                               moviesDao.deleteAll()
-                              Log.i("here","saving ${response.body()!!.results.size} items")
                               for( item in items){
                                   moviesDao.insert(item)
                               }
                           }
                       }
                   }
-                  Log.i("here","returning ${response.body()!!.results.size}")
                   return response.body()?.results ?: emptyList()
               }catch (e:Exception){
                   e.printStackTrace()
@@ -65,15 +63,12 @@ class MediaItemsRepository@Inject constructor(
                             val items = response.body()?.results ?: emptyList()
 
                             if(items.isNotEmpty()){
-
-                                Log.i("here","saving series${response.body()!!.results.size} items")
                                 for( item in items){
                                     seriesDao.insert(item)
                                 }
                             }
                         }
                     }
-                    Log.i("here","returning series ${response.body()!!.results.size}")
                     return response.body()?.results ?: emptyList()
                 }catch (e:Exception){
                     e.printStackTrace()

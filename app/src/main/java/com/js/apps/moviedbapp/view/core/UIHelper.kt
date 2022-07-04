@@ -9,10 +9,8 @@ import android.webkit.WebView
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.js.apps.moviedbapp.R
-
 import androidx.core.content.ContextCompat
-import com.js.apps.moviedbapp.model.core.ConnectivityHelper
+import com.js.apps.moviedbapp.R
 import com.js.apps.moviedbapp.model.entities.media.Video
 
 class UIHelper(val context:Context) {

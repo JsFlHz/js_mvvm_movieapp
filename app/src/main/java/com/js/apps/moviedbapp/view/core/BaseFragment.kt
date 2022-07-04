@@ -20,12 +20,10 @@ open class BaseFragment:Fragment() {
         val connectivityHelper = ConnectivityHelper(requireContext())
         val noInternetBar = requireActivity().findViewById<TextView>(R.id.no_internet_bar)
         if(!connectivityHelper.isOnline()){
-            Log.i("here", "find noInternetBar?${noInternetBar}")
             noInternetBar?.visibility = View.VISIBLE
         }else{
             noInternetBar?.visibility = View.GONE
         }
-        Log.i("here", "is on line?${connectivityHelper.isOnline()}")
     }
     fun showNoInternetMessge(){
         Toast.makeText(

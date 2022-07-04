@@ -5,10 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -16,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.js.apps.moviedbapp.R
 import com.js.apps.moviedbapp.databinding.ItemsByCategoryFragmentBinding
-import com.js.apps.moviedbapp.model.core.ConnectivityHelper
 import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.media.Movie
 import com.js.apps.moviedbapp.model.entities.media.Serie
@@ -68,7 +65,6 @@ class ItemsByCategoryFragment : BaseFragment() {
                 viewModel.discoverContents(MediaTypes.SERIE)
             }
             if(!!super.connectivityHelper.isOnline()) {
-                Log.i("here", "loading list suspend")
                 loadList(result)
             }
         }
@@ -101,7 +97,6 @@ class ItemsByCategoryFragment : BaseFragment() {
                 viewModel.discoverContents(MediaTypes.MOVIE)
             }
             if(!!super.connectivityHelper.isOnline()) {
-                Log.i("here", "loading list suspend")
                 loadList(result)
             }
         }

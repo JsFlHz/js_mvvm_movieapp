@@ -19,7 +19,6 @@ class ItemRepository@Inject constructor(
     private val connectivityHelper: ConnectivityHelper
 ){
     suspend fun getItemVideos(id:Int, type:MediaTypes):List<Video>{
-        Log.i("here", "getVideos")
         return service.getItemVideos(id, type)
     }
     fun getMovieItemFromDB( id:Int ):LiveData<Movie>{

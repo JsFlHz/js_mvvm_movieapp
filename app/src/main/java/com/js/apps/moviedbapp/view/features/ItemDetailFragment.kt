@@ -1,21 +1,17 @@
 package com.js.apps.moviedbapp.view.features
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.js.apps.moviedbapp.R
 import com.js.apps.moviedbapp.databinding.ItemDetailFragmentBinding
-import com.js.apps.moviedbapp.model.core.ConnectivityHelper
 import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.media.Video
 import com.js.apps.moviedbapp.view.core.BaseFragment
@@ -72,14 +68,12 @@ class ItemDetailFragment : BaseFragment() {
     fun addObservers(){
         val movieObserver = Observer<CardItem>{
             if(it != null){
-                Log.i("here","${it.toString()}")
                 setContent(it)
             }
         }
         viewModel.currentMovie.observe(viewLifecycleOwner,movieObserver)
         val serieObserver = Observer<CardItem>{
             if(it != null){
-                Log.i("here","${it.toString()}")
                 setContent(it)
             }
         }

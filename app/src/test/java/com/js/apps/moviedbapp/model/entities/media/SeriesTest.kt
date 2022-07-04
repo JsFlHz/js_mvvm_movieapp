@@ -1,19 +1,19 @@
 package com.js.apps.moviedbapp.model.entities.media
 
-import com.google.gson.annotations.SerializedName
 import org.junit.Assert
 import org.junit.Test
 
 
 class SeriesTest {
-    private lateinit var serie:Serie
+    private lateinit var testObject: Serie
+
     @Test
     fun calculateImage() {
-        serie = Serie(
+        testObject = Serie(
             0,
-        "title",
-       "/route/23443j",
-"",
+            "title",
+            "/route/23443j",
+            "",
             "",
             "",
             2.3f,
@@ -24,18 +24,18 @@ class SeriesTest {
         )
         Assert.assertEquals(
             0,
-            serie.getRatingPorcent(0.0f)
+            testObject.getRatingPorcent(0.0f)
         )
         Assert.assertEquals(
             40,
-            serie.getRatingPorcent(4.0f)
+            testObject.getRatingPorcent(4.0f)
         )
         Assert.assertEquals(
             0,
-            serie.getRatingPorcent(-23f)
+            testObject.getRatingPorcent(-23f)
         )
         Assert.assertNotNull(
-            serie.getRatingPorcent(-23f)
+            testObject.getRatingPorcent(-23f)
         )
     }
 }

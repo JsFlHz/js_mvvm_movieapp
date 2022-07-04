@@ -1,12 +1,9 @@
 package com.js.apps.moviedbapp.viewmodel.features
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.js.apps.moviedbapp.model.core.MediaTypes
-import com.js.apps.moviedbapp.model.entities.media.Movie
-import com.js.apps.moviedbapp.model.entities.media.Serie
 import com.js.apps.moviedbapp.model.repository.implementation.MediaItemsRepository
 import com.js.apps.moviedbapp.view.core.CardItem
 import dagger.hilt.android.lifecycle.HiltViewModel
