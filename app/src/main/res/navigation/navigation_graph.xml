@@ -15,15 +15,28 @@
             app:destination="@id/itemDetailFragment" />
         <action
             android:id="@+id/action_itemsByCategory_to_itemDetail"
-            app:destination="@id/itemDetailFragment" />
+            app:destination="@id/itemDetailFragment" >
+            <argument
+                android:name="id"
+                app:argType="integer"/>
+            <argument
+                android:name="type"
+                app:argType="integer"/>
+        </action>
     </fragment>
     <fragment
         android:id="@+id/itemDetailFragment"
         android:name="com.js.apps.moviedbapp.view.features.ItemDetailFragment"
         android:label="item_detail_fragment"
         tools:layout="@layout/item_detail_fragment" >
+        <argument
+            android:name="id"
+            app:argType="integer"/>
+        <argument
+            android:name="type"
+            app:argType="integer"/>
         <action
             android:id="@+id/action_itemDetail_to_itemsByCategory"
-            app:destination="@id/itemsByCategoryFragment" />
+            app:popUpTo="@id/itemsByCategoryFragment" />
     </fragment>
 </navigation>

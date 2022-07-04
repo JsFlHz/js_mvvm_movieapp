@@ -10,10 +10,23 @@ import retrofit2.http.Query
 
 interface ApplicationAPIInterface {
     @GET("/3/discover/{category}")
-    suspend fun  discoverMovies(@Path("category") category:String, @Query("api_key") apiKey:String ):Response<MoviesResponse>
+    suspend fun  discoverMovies(
+        @Path("category") category:String,
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<MoviesResponse>
+
     @GET("/3/discover/{category}")
-    suspend fun  discoverSeries(@Path("category") category:String, @Query("api_key") apiKey:String ):Response<SeriesResponse>
+    suspend fun  discoverSeries(
+        @Path("category") category:String,
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<SeriesResponse>
 
     @GET("")
-    suspend fun getItemDetail(@Query("id") id:Int ,@Query("api_key")apiKey:String ):Response<Movie>
+    suspend fun getItemDetail(
+        @Query("id") id:Int ,
+        @Query("api_key") apiKey:String,
+        @Query("language") lang:String
+    ):Response<Movie>
 }

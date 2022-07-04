@@ -31,7 +31,9 @@ data class Movie(
     @SerializedName("vote_count")
     var voteCount       : Int,
 )  : CardItem  {
-
+    override fun cardId():Int{
+        return id
+    }
     override fun getPoster(): String {
         return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$posterPath"
     }
@@ -42,6 +44,18 @@ data class Movie(
 
     override fun getName(): String {
         return title
+    }
+
+    override fun getBackdrop(): String {
+        return  return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$backdropPath"
+    }
+
+    override fun getIntroText(): String {
+        return overview
+    }
+
+    override fun getAuthor(): String {
+        return ""
     }
 
     override fun getDate(): String {

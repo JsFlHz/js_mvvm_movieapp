@@ -10,5 +10,7 @@
     <string name="wellcome_post_data">  Explora ahora.</string>
     <string name="popularity_init">0</string>
     <string name="no_internet_connection">Estás offline! Algunos contenidos no estarán disponibles.</string>
-
+    <string name="lorem_ipsum_m">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially d more rMaker including versions of Lorem Ipsum.</string>
+    <string name="user_rating">Puntuación de usuario.</string>
+    <string name="show_trailer">Ver avance.</string>
 </resources>

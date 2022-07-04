@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 
 @Entity
 data class Serie(
-    @PrimaryKey()
+    @PrimaryKey
     var id               : Int,
     @SerializedName ("name")
     var title            : String,
@@ -30,6 +30,9 @@ data class Serie(
     @SerializedName("vote_count")
     var voteCount       : Int
 )  : CardItem  {
+    override fun cardId(): Int {
+        return id
+    }
 
     override fun getPoster(): String {
         return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$posterPath"
@@ -41,6 +44,18 @@ data class Serie(
 
     override fun getName(): String {
         return title
+    }
+
+    override fun getBackdrop(): String {
+        return return "${APIConstants.IMAGES_SERVER_URL.value}${APIConstants.IMAGES_ORIGINAL_SIZE.value}$backdropPath"
+    }
+
+    override fun getIntroText(): String {
+        return overview
+    }
+
+    override fun getAuthor(): String {
+        return ""
     }
 
     override fun getDate(): String {

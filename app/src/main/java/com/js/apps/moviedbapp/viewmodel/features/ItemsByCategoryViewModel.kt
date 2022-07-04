@@ -1,8 +1,6 @@
 package com.js.apps.moviedbapp.viewmodel.features
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.js.apps.moviedbapp.model.core.MediaTypes
 import com.js.apps.moviedbapp.model.entities.media.Movie
@@ -13,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+
 @HiltViewModel
 class ItemsByCategoryViewModel @Inject constructor(
     val repository : MediaItemsRepository

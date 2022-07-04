@@ -79,27 +79,27 @@
                 android:layout_marginHorizontal="10dp"
                 android:fontFamily="@font/lato_bold"
                 android:gravity="center"
+                android:onClick="@{()->presenter.moviesButtonTappded()}"
                 android:padding="2dp"
                 android:text="@string/movies"
                 android:textColor="@color/white"
                 android:textSize="@dimen/middle_text"
-                android:onClick="@{()->presenter.moviesButtonTappded()}"
 
                 />
 
             <TextView
                 android:id="@+id/series_button"
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
+                android:background="@drawable/background_button_category"
                 android:fontFamily="@font/lato_bold"
                 android:gravity="center"
+                android:onClick="@{()->presenter.seriesButtonTapped()}"
                 android:padding="2dp"
                 android:text="@string/series"
                 android:textColor="@color/white"
-                android:textSize="@dimen/middle_text"
-                android:onClick="@{()->presenter.seriesButtonTapped()}"
-                />
+                android:textSize="@dimen/middle_text" />
 
         </LinearLayout>
     </LinearLayout>

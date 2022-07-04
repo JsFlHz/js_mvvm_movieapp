@@ -83,9 +83,11 @@ class MediaItemsRepository@Inject constructor(
     fun getMediaItemsFromDB( ):LiveData<List<Movie>>{
         return moviesDao.getAll()
     }
+
     fun getSeriesFromDB( ):LiveData<List<Serie>>{
         return seriesDao.getAll()
     }
+
 
 
 }

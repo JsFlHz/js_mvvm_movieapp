@@ -19,7 +19,8 @@ class MediaItemsService @Inject constructor(){
         return withContext(Dispatchers.IO) {
             retrofit.create(ApplicationAPIInterface::class.java).discoverMovies(
                 MediaTypes.MOVIE.path,
-                APIConstants.TMDB_API_KEY.value
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
             )
         }
     }
@@ -27,7 +28,8 @@ class MediaItemsService @Inject constructor(){
         return withContext(Dispatchers.IO) {
             retrofit.create(ApplicationAPIInterface::class.java).discoverSeries(
                 MediaTypes.SERIE.path,
-                APIConstants.TMDB_API_KEY.value
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
             )
         }
     }
@@ -36,7 +38,8 @@ class MediaItemsService @Inject constructor(){
         return withContext(Dispatchers.IO) {
             retrofit.create(ApplicationAPIInterface::class.java).getItemDetail(
                 id,
-                APIConstants.TMDB_API_KEY.value
+                APIConstants.TMDB_API_KEY.value,
+                APIConstants.API_LAG_ESP_MX.value
             )
         }
     }
