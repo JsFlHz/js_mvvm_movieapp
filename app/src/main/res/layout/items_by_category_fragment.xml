@@ -4,13 +4,13 @@
     <data>
         <variable
             name="presenter"
-            type="com.js.apps.moviedbapp.view.features.ItemsByCategoryFragment" />
+            type="com.js.apps.moviedbapp.ui.view.ItemsByCategoryFragment" />
     </data>
 <RelativeLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.features.ItemsByCategoryFragment"
+    tools:context=".ui.view.ItemsByCategoryFragment"
     android:background="@color/transparent_light"
     >
 

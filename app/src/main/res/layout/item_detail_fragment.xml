@@ -4,13 +4,13 @@
     <data >
         <variable
             name="item"
-            type="com.js.apps.moviedbapp.view.core.CardItem" />
+            type="com.js.apps.moviedbapp.ui.core.CardItem" />
         <variable
             name="type"
-            type="com.js.apps.moviedbapp.model.core.MediaTypes" />
+            type="com.js.apps.moviedbapp.data.core.MediaTypes" />
         <variable
             name="presenter"
-            type="com.js.apps.moviedbapp.view.features.ItemDetailFragment" />
+            type="com.js.apps.moviedbapp.ui.view.ItemDetailFragment" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".view.features.ItemDetailFragment"
+    tools:context=".ui.view.ItemDetailFragment"
     android:background="@color/black"
     >
 
