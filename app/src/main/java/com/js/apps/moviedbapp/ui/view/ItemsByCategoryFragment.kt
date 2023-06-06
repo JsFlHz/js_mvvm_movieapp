@@ -12,9 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.js.apps.moviedbapp.R
-import com.js.apps.moviedbapp.data.model.Movie
-import com.js.apps.moviedbapp.data.model.Serie
+import com.js.apps.moviedbapp.domain.media.MovieModel
+import com.js.apps.moviedbapp.domain.media.SerieModel
 import com.js.apps.moviedbapp.databinding.ItemsByCategoryFragmentBinding
+import com.js.apps.moviedbapp.domain.MediaTypes
 import com.js.apps.moviedbapp.ui.core.BaseFragment
 import com.js.apps.moviedbapp.ui.core.CardItem
 import com.js.apps.moviedbapp.ui.core.CardItemAdapter
@@ -30,7 +31,7 @@ class ItemsByCategoryFragment : BaseFragment() {
     private lateinit var  viewModel: ItemsByCategoryViewModel
     private lateinit var binding: ItemsByCategoryFragmentBinding
     private lateinit var uiHelper : UIHelper
-    private lateinit var type : com.js.apps.moviedbapp.data.core.MediaTypes
+    private lateinit var type : MediaTypes
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,7 +52,7 @@ class ItemsByCategoryFragment : BaseFragment() {
         viewModel = ViewModelProvider(this).get(ItemsByCategoryViewModel::class.java)
         uiHelper = UIHelper(requireContext())
         addObservers()
-        type = com.js.apps.moviedbapp.data.core.MediaTypes.SERIE
+        type = MediaTypes.SERIE
         seriesButtonTapped()
     }
 
@@ -60,13 +61,13 @@ class ItemsByCategoryFragment : BaseFragment() {
         viewModel.setSerieId(1)
         lifecycleScope.launch(Dispatchers.Main) {
            val result = withContext(Dispatchers.IO){
-                viewModel.discoverContents(com.js.apps.moviedbapp.data.core.MediaTypes.SERIE)
+                viewModel.discoverContents(MediaTypes.SERIE)
             }
             if(!!super.connectivityHelper.isOnline()) {
                 loadList(result)
             }
         }
-        type = com.js.apps.moviedbapp.data.core.MediaTypes.SERIE
+        type = MediaTypes.SERIE
     }
     private fun updateSeriesUI(){
         updateSelection(
@@ -92,13 +93,13 @@ class ItemsByCategoryFragment : BaseFragment() {
         viewModel.setMovieId(1)
         lifecycleScope.launch(Dispatchers.Main) {
             val result =  withContext(Dispatchers.IO){
-                viewModel.discoverContents(com.js.apps.moviedbapp.data.core.MediaTypes.MOVIE)
+                viewModel.discoverContents(MediaTypes.MOVIE)
             }
             if(!!super.connectivityHelper.isOnline()) {
                 loadList(result)
             }
         }
-        type = com.js.apps.moviedbapp.data.core.MediaTypes.MOVIE
+        type = MediaTypes.MOVIE
     }
     private fun  updateMoviesUI(){
         updateSelection(
@@ -157,14 +158,14 @@ class ItemsByCategoryFragment : BaseFragment() {
 
 
     private fun addObservers(){
-        val observer = Observer<List<Movie>>{
+        val observer = Observer<List<MovieModel>>{
             if(!it.isNullOrEmpty()){
                 loadList(it)
                 checkConnectivity()
             }
         }
        viewModel.allMovies.observe(viewLifecycleOwner,observer)
-        val seriesObserver = Observer<List<Serie>>{
+        val seriesObserver = Observer<List<SerieModel>>{
             if(!it.isNullOrEmpty()){
                 loadList(it)
                 checkConnectivity()

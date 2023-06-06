@@ -1,34 +1,25 @@
-package com.js.apps.moviedbapp.data.model
+package com.js.apps.moviedbapp.data.dasource.localdatasource.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-import com.js.apps.moviedbapp.data.dasource.remotedatasource.APIConstants
+import com.js.apps.moviedbapp.domain.APIConstants
 import com.js.apps.moviedbapp.ui.core.CardItem
 import java.text.SimpleDateFormat
 
 @Entity
 data class Serie(
     @PrimaryKey
-    var id               : Int,
-    @SerializedName ("name")
-    var title            : String,
-    @SerializedName ("backdrop_path")
-    var backdropPath    : String,
-    @SerializedName("original_language")
-    var originalLanguage: String,
-    @SerializedName("original_name")
-    var originalName   : String,
-    var overview         : String,
-    var popularity       : Float,
-    @SerializedName("poster_path")
-    var posterPath      : String,
-    @SerializedName("first_air_date")
-    var releaseDate     : String,
-    @SerializedName("vote_average")
-    var voteAverage     : Float,
-    @SerializedName("vote_count")
-    var voteCount       : Int
+    var id               : Int = 0,
+    var title            : String = "",
+    var backdropPath    : String = "",
+    var originalLanguage: String = "",
+    var originalName   : String = "",
+    var overview         : String = "",
+    var popularity       : Float = 0F,
+    var posterPath      : String = "",
+    var releaseDate     : String = "",
+    var voteAverage     : Float = 0F,
+    var voteCount       : Int = 0
 )  : CardItem  {
     override fun cardId(): Int {
         return id

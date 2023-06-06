@@ -11,8 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.js.apps.moviedbapp.R
-import com.js.apps.moviedbapp.data.model.Video
+import com.js.apps.moviedbapp.domain.media.VideoModel
 import com.js.apps.moviedbapp.databinding.ItemDetailFragmentBinding
+import com.js.apps.moviedbapp.domain.MediaTypes
 import com.js.apps.moviedbapp.ui.core.BaseFragment
 import com.js.apps.moviedbapp.ui.core.CardItem
 import com.js.apps.moviedbapp.ui.core.UIHelper
@@ -52,12 +53,12 @@ class ItemDetailFragment : BaseFragment() {
         }
         addObservers()
         when( this.type ){
-            com.js.apps.moviedbapp.data.core.MediaTypes.SERIE.id-> {
-                binding.type = com.js.apps.moviedbapp.data.core.MediaTypes.SERIE
+            MediaTypes.SERIE.id-> {
+                binding.type = MediaTypes.SERIE
                 viewModel.setSerieId(itemId)
             }
-            com.js.apps.moviedbapp.data.core.MediaTypes.MOVIE.id-> {
-                binding.type = com.js.apps.moviedbapp.data.core.MediaTypes.MOVIE
+            MediaTypes.MOVIE.id-> {
+                binding.type = MediaTypes.MOVIE
                 viewModel.setVideoId(itemId)
             }
         }
@@ -86,7 +87,7 @@ class ItemDetailFragment : BaseFragment() {
             .into(binding.ivPoster)
         binding.item = item
     }
-    fun showVideoTapped(cardItem: CardItem, type: com.js.apps.moviedbapp.data.core.MediaTypes){
+    fun showVideoTapped(cardItem: CardItem, type: MediaTypes){
         if(!connectivityHelper.isOnline()){
             super.showNoInternetMessge()
             return
@@ -98,7 +99,7 @@ class ItemDetailFragment : BaseFragment() {
             showVideo(result)
         }
     }
-    fun showVideo(items:List<Video>){
+    fun showVideo(items:List<VideoModel>){
         if(connectivityHelper.isOnline()) {
             if (items.isNotEmpty()) {
                 Log.i("here", "video ${items[0].toString()}")

@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp.data.dasource.remotedatasource
+package com.js.apps.moviedbapp.domain
 
 /***
  *  @author Js <jose.flores.h222@gmail.com>

@@ -11,7 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.js.apps.moviedbapp.R
-import com.js.apps.moviedbapp.data.model.Video
+import com.js.apps.moviedbapp.domain.media.VideoModel
 
 class UIHelper(val context:Context) {
     fun setColor( color:Int, vararg views: View){
@@ -33,7 +33,7 @@ class UIHelper(val context:Context) {
             }
         }
     }
-    fun createWebViewVideo(item:Video ): View{
+    fun createWebViewVideo(item: VideoModel): View{
         Log.i("ContentUICreator", "creating webview")
         var component:WebView? = null
         val layoutParams = LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT ).apply{

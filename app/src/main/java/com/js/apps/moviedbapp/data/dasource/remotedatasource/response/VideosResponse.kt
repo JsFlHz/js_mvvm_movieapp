@@ -1,6 +1,6 @@
 package com.js.apps.moviedbapp.data.dasource.remotedatasource.response
 
-import com.js.apps.moviedbapp.data.model.Video
+import com.js.apps.moviedbapp.domain.media.VideoModel
 
 
 /***
@@ -8,9 +8,8 @@ import com.js.apps.moviedbapp.data.model.Video
  * This class help us to translate the videos  service API response
  */
 data class VideosResponse(
-    var results: List<Video>
+    var results: List<VideoModel>
 )
-
 data class VideoResponse(
     var id      : String,
     var key     : String,

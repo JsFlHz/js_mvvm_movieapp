@@ -1,18 +1,16 @@
 package com.js.apps.moviedbapp.data.dasource.remotedatasource.response
 
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.js.apps.moviedbapp.data.model.Movie
+import com.js.apps.moviedbapp.domain.media.MovieModel
 
 /***
  * @author Js <jose.flores.h222@gmail.com>
  * This class help us to translate the movies discover service API response
  */
 data class MoviesResponse(
-    var results: List<Movie>
+    var results: List<MovieModel>
 )
 data class MovieResponse (
-    @PrimaryKey()
     var id               : Int,
     var adult            : Boolean,
     @SerializedName("backdrop_path")

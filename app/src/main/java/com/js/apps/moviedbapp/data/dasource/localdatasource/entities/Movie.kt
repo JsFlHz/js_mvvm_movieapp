@@ -1,35 +1,27 @@
-package com.js.apps.moviedbapp.data.model
+package com.js.apps.moviedbapp.data.dasource.localdatasource.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-import com.js.apps.moviedbapp.data.dasource.remotedatasource.APIConstants
+import com.js.apps.moviedbapp.domain.APIConstants
 import com.js.apps.moviedbapp.ui.core.CardItem
 import java.text.SimpleDateFormat
 
 @Entity
 data class Movie(
     @PrimaryKey()
-    var id               : Int,
-    var adult            : Boolean,
-    @SerializedName ("backdrop_path")
-    var backdropPath    : String,
-    @SerializedName("original_language")
-    var originalLanguage: String,
-    @SerializedName("original_title")
-    var originalTitle   : String,
-    var overview         : String,
-    var popularity       : Float,
-    @SerializedName("poster_path")
-    var posterPath      : String,
-    @SerializedName("release_date")
-    var releaseDate     : String,
-    var title            : String,
-    var video            : Boolean,
-    @SerializedName("vote_average")
-    var voteAverage     : Float,
-    @SerializedName("vote_count")
-    var voteCount       : Int,
+    var id               : Int = 0,
+    var adult            : Boolean = false,
+    var backdropPath    : String = "",
+    var originalLanguage: String = "",
+    var originalTitle   : String ="",
+    var overview         : String = "",
+    var popularity       : Float = 0F,
+    var posterPath      : String = "",
+    var releaseDate     : String = "",
+    var title            : String = "",
+    var video            : Boolean = false,
+    var voteAverage     : Float = 0F,
+    var voteCount       : Int = 0,
 )  : CardItem  {
     override fun cardId():Int{
         return id

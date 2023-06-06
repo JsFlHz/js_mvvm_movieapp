@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp.data.dasource.remotedatasource
+package com.js.apps.moviedbapp.domain
 
 enum class APIStatusCode(val code:Int) {
     SUCCES_CODE(200),

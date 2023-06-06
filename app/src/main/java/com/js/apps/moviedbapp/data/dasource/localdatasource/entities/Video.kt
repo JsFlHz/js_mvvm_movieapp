@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp.data.model
+package com.js.apps.moviedbapp.data.dasource.localdatasource.entities
 
 data class Video(
     var id      : String,

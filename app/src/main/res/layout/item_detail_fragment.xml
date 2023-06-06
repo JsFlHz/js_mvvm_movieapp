@@ -7,7 +7,7 @@
             type="com.js.apps.moviedbapp.ui.core.CardItem" />
         <variable
             name="type"
-            type="com.js.apps.moviedbapp.data.core.MediaTypes" />
+            type="com.js.apps.moviedbapp.domain.MediaTypes" />
         <variable
             name="presenter"
             type="com.js.apps.moviedbapp.ui.view.ItemDetailFragment" />

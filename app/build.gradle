@@ -40,7 +40,7 @@ android {
 }
 dependencies {
 
-    def roomVersion = "2.4.2"
+    def roomVersion = "2.4.3"
     def retrofitVersion ="2.9.0"
     def nav_version = "2.4.2"
     def okhttpVersion = '4.9.0'
@@ -84,6 +84,9 @@ dependencies {
 
     //Library for interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    //compose
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-beta01")
 
 
 }

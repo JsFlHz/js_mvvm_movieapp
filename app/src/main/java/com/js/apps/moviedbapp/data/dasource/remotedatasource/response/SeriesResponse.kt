@@ -1,19 +1,17 @@
 package com.js.apps.moviedbapp.data.dasource.remotedatasource.response
 
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.js.apps.moviedbapp.data.model.Serie
+import com.js.apps.moviedbapp.domain.media.SerieModel
 
 /***
  * @author Js <jose.flores.h222@gmail.com>
  * This class help us to translate the series discover service API response
  */
 data class SeriesResponse   (
-    var results: List<Serie>
+    var results: List<SerieModel>
 )
 
 data class SerieResponse(
-    @PrimaryKey
     var id               : Int,
     @SerializedName("name")
     var title            : String,

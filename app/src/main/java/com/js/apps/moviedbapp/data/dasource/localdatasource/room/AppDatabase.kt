@@ -5,11 +5,11 @@ import androidx.room.RoomDatabase
 import com.js.apps.moviedbapp.data.dasource.localdatasource.room.dao.MoviesDao
 import com.js.apps.moviedbapp.data.dasource.localdatasource.room.dao.SeriesDao
 
-import com.js.apps.moviedbapp.data.model.Movie
-import com.js.apps.moviedbapp.data.model.Serie
+import com.js.apps.moviedbapp.domain.media.MovieModel
+import com.js.apps.moviedbapp.domain.media.SerieModel
 
 
-@Database( entities = [Movie::class, Serie::class], version = 1)
+@Database( entities = [MovieModel::class, SerieModel::class], version = 1)
 abstract class AppDatabase :RoomDatabase(){
     abstract fun moviesDao():MoviesDao
     abstract fun seriesDao():SeriesDao

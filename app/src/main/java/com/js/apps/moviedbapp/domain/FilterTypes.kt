@@ -1,4 +1,4 @@
-package com.js.apps.moviedbapp.data.core
+package com.js.apps.moviedbapp.domain
 
 enum class FilterTypes( id:Int) {
     PLAYING_NOW(1),
